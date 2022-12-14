@@ -1,0 +1,25 @@
+.header-top{
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  padding: 24px 0;
+}
+
+.darkmode-btn{
+  position: relative;
+  font-size: 16px;
+  line-height: 22px;
+  color: rgb(17, 21, 23);
+  border: none;
+  background-color: rgb(255, 255, 255);
+}
+
+.darkmode-btn::before{
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top:0;
+  left: -25px;
+  background-image: url("../../assets/images/icon/moon.svg");
+  content: "";
+}
