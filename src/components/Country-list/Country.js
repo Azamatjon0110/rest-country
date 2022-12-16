@@ -1,20 +1,28 @@
 
 
 import "./country.css";
-import Flag from "../../assets/images/flag-germany.jpg"
+import { Item } from "../Card/Card";
 
-const List = () => {
+const List = ({data}) => {
+
+
   return (
-    <li className="list-item">
-      <img className="country-img" src={Flag} alt="Template" />
-      <div className="info-box">
-        <h3 className="country-title">Germany</h3>
-        <p className="population"><strong>Population </strong> <span>81,770,900</span></p>
-        <p className="region"><strong>Region </strong> <span>Europe</span></p>
-        <p className="capital"><strong>Capital </strong> <span>Berlin</span></p>
-      </div>
-    </li>
-  )
-}
+    <ul className="list-unstyle">
+      {
+        data.map(item => (
+          <Item key={item.name.common}
+          img={item.flags.png}
+          name={item.name.common}
+          population={item.population}
+          region={item.region}
+          capital= {item.capital}
+          />
+        ))
+      }
 
-export default List
+    </ul>
+
+    )
+  }
+
+  export default List

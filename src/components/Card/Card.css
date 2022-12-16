@@ -8,8 +8,11 @@
 
 .country-img{
   width: 100%;
-  min-height: 180px;
+  height: auto;
+  max-height: 180px;
   margin-bottom: 24px;
+  object-fit: 1;
+  border-bottom: 1px solid rgb(216, 222, 222);
 }
 
 .info-box{
