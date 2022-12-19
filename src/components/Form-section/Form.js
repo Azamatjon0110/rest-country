@@ -1,6 +1,6 @@
 
 import { useEffect, useState } from "react";
-import List from "../Country-list/Country";
+import { Item } from "../Card/Card";
 import { Form } from "../CountryInput/Input";
 import "./form.css"
 
@@ -13,19 +13,16 @@ const FormSection = () => {
     fetch(`https://restcountries.com/v3.1/${value ? `name/${value}`: region ? `region/${region}` : 'all'}`)
 			.then((res) => res.json())
 			.then((data) => {
-				console.log(data);
 				setData(data);
 			});
   }, [value, region])
 
   const selectVal = (region) => {
-    console.log(region);
     setRegion(region);
     setValue("")
   }
   const valget = (text) => {
     setValue(text)
-    console.log(text);
     setRegion("")
   }
 
@@ -33,7 +30,20 @@ const FormSection = () => {
     <section className="form-section">
       <div className="container">
           <Form getv={valget} getSelect={selectVal}/>
-          <List data={data}/>
+          <ul className="list-unstyle">
+            {
+              data.map(item => (
+                <Item key={item.name.common}
+                img={item.flags.png}
+                name={item.name.common}
+                population={item.population}
+                region={item.region}
+                capital= {item.capital}
+                />
+              ))
+            }
+
+           </ul>
       </div>
     </section>
   )
